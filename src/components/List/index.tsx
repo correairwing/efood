@@ -1,14 +1,25 @@
-import ListItem from '../ListItem/idex'
+import ListItem from '../ListItem'
 import { Content } from './styles'
 
-const List = () => (
+import Restaurante from '../../models/restaurantes'
+
+type Props = {
+  restaurantes: Restaurante[]
+}
+
+const List = ({ restaurantes }: Props) => (
   <Content>
-    <ListItem />
-    <ListItem />
-    <ListItem />
-    <ListItem />
-    <ListItem />
-    <ListItem />
+    {restaurantes.map((restaurante) => (
+      <ListItem
+        key={restaurante.id}
+        name={restaurante.name}
+        rating={restaurante.rating}
+        image={restaurante.image}
+        description={restaurante.description}
+        infos={restaurante.infos}
+        caminho={restaurante.caminho}
+      />
+    ))}
   </Content>
 )
 

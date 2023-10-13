@@ -3,10 +3,18 @@ import { cores } from '../../styles'
 
 export const HeaderArea = styled.header`
   width: 100%;
-  height: 384px;
-
   img {
     margin-top: 48px;
+  }
+
+  div {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+    img {
+      margin-bottom: 65px;
+    }
   }
 `
 export const Content = styled.div`
@@ -23,4 +31,5 @@ export const Title = styled.h1`
   font-weight: 900;
   max-width: 536px;
   margin-bottom: 40px;
+  margin-top: 70px;
 `

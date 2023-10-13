@@ -4,6 +4,7 @@ import { cores } from '../../styles'
 export const FooterArea = styled.div`
   height: 298px;
   background-color: ${cores.background2};
+  align-items: center;
 `
 export const Text = styled.p`
   max-width: 480px;
@@ -23,5 +24,10 @@ export const Content = styled.div`
 
   img {
     margin-top: 40px;
+  }
+`
+export const SocialMedia = styled.div`
+  img {
+    margin-right: 8px;
   }
 `

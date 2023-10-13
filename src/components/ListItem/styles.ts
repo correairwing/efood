@@ -6,6 +6,7 @@ export const Card = styled.div`
   border: 1px solid ${cores.orange};
   color: ${cores.orange};
   background-color: ${cores.white};
+  position: relative;
 
   p {
     font-size: 14px;
@@ -17,6 +18,7 @@ export const Card = styled.div`
 export const FoodImage = styled.img`
   width: 100%;
 `
+
 export const Rating = styled.div`
   display: flex;
   margin-right: 4px;
@@ -32,4 +34,9 @@ export const Name = styled.div`
     font-weight: 700;
     margin: 0 4px 0 4px;
   }
+`
+export const Infos = styled.div`
+  position: absolute;
+  top: 16px;
+  right: 16px;
 `
