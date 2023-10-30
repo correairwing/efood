@@ -11,7 +11,7 @@ const Header2 = () => (
       <div>
         <Title>Restaurantes</Title>
         <img src={logo} alt="Logo" />
-        <Title>0 produtos no carrinho</Title>
+        <Title>0 produto(s) no carrinho</Title>
       </div>
     </HeaderArea>
     <Hero style={{ backgroundImage: `url(${hero})` }}>
