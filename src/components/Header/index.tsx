@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import logo from '../../assets/images/logo.svg'
 import vector from '../../assets/images/vector.svg'
 
@@ -7,7 +8,9 @@ const Header = () => (
   <>
     <HeaderArea style={{ backgroundImage: `url(${vector})` }}>
       <Content>
-        <img src={logo} alt="Logo" />
+        <Link to="/home">
+          <img src={logo} alt="Logo" />
+        </Link>
         <Title>Viva experiências gastronômicas no conforto da sua casa</Title>
       </Content>
     </HeaderArea>
