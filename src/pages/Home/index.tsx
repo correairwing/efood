@@ -1,5 +1,5 @@
 import Header from '../../components/Header'
-import List from '../../components/List'
+import RestaurantList from '../../components/RestaurantList'
 import Restaurante from '../../models/restaurantes'
 
 import sushi from '../../assets/images/sushi.png'
@@ -24,7 +24,7 @@ const restaurantes: Restaurante[] = [
     description:
       'A La Dolce Vita Trattoria leva a autêntica cozinha italiana até você! Desfrute de massas caseiras, pizzas deliciosas e risotos incríveis, tudo no conforto do seu lar. Entrega rápida, pratos bem embalados e sabor inesquecível. Peça já!',
     infos: ['Italiana'],
-    caminho: '/italiana'
+    caminho: '/restaurants'
   },
   {
     id: 3,
@@ -34,7 +34,7 @@ const restaurantes: Restaurante[] = [
     description:
       'A La Dolce Vita Trattoria leva a autêntica cozinha italiana até você! Desfrute de massas caseiras, pizzas deliciosas e risotos incríveis, tudo no conforto do seu lar. Entrega rápida, pratos bem embalados e sabor inesquecível. Peça já!',
     infos: ['Italiana'],
-    caminho: '/italiana'
+    caminho: '/restaurants'
   },
   {
     id: 4,
@@ -44,7 +44,7 @@ const restaurantes: Restaurante[] = [
     description:
       'A La Dolce Vita Trattoria leva a autêntica cozinha italiana até você! Desfrute de massas caseiras, pizzas deliciosas e risotos incríveis, tudo no conforto do seu lar. Entrega rápida, pratos bem embalados e sabor inesquecível. Peça já!',
     infos: ['Italiana'],
-    caminho: '/italiana'
+    caminho: '/restaurants'
   },
   {
     id: 5,
@@ -54,7 +54,7 @@ const restaurantes: Restaurante[] = [
     description:
       'A La Dolce Vita Trattoria leva a autêntica cozinha italiana até você! Desfrute de massas caseiras, pizzas deliciosas e risotos incríveis, tudo no conforto do seu lar. Entrega rápida, pratos bem embalados e sabor inesquecível. Peça já!',
     infos: ['Italiana'],
-    caminho: '/italiana'
+    caminho: '/restaurants'
   },
   {
     id: 6,
@@ -64,14 +64,14 @@ const restaurantes: Restaurante[] = [
     description:
       'A La Dolce Vita Trattoria leva a autêntica cozinha italiana até você! Desfrute de massas caseiras, pizzas deliciosas e risotos incríveis, tudo no conforto do seu lar. Entrega rápida, pratos bem embalados e sabor inesquecível. Peça já!',
     infos: ['Italiana'],
-    caminho: '/italiana'
+    caminho: '/restaurants'
   }
 ]
 
 const Home = () => (
   <>
     <Header />
-    <List restaurantes={restaurantes} />
+    <RestaurantList restaurantes={restaurantes} />
   </>
 )
 

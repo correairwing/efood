@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import logo from '../../assets/images/logo.svg'
 import facebook from '../../assets/images/facebook.svg'
 import instagram from '../../assets/images/instagram.svg'
@@ -8,7 +9,9 @@ import { Content, FooterArea, SocialMedia, Text } from './styles'
 const Footer = () => (
   <FooterArea>
     <Content>
-      <img src={logo} alt="" />
+      <Link to="/">
+        <img src={logo} alt="Logo" />
+      </Link>
       <SocialMedia>
         <img src={facebook} alt="" />
         <img src={instagram} alt="" />

@@ -7,7 +7,7 @@ type Props = {
   restaurantes: Restaurante[]
 }
 
-const List = ({ restaurantes }: Props) => (
+const RestaurantList = ({ restaurantes }: Props) => (
   <Content>
     {restaurantes.map((restaurante) => (
       <ListItem
@@ -23,4 +23,4 @@ const List = ({ restaurantes }: Props) => (
   </Content>
 )
 
-export default List
+export default RestaurantList

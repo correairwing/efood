@@ -8,7 +8,7 @@ const Header = () => (
   <>
     <HeaderArea style={{ backgroundImage: `url(${vector})` }}>
       <Content>
-        <Link to="/home">
+        <Link to="/">
           <img src={logo} alt="Logo" />
         </Link>
         <Title>Viva experiências gastronômicas no conforto da sua casa</Title>
