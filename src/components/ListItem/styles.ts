@@ -9,6 +9,7 @@ export const Card = styled.div`
   position: relative;
 
   p {
+    height: 110px;
     font-size: 14px;
     font-weight: 400;
     line-height: 22px;
@@ -17,6 +18,8 @@ export const Card = styled.div`
 `
 export const FoodImage = styled.img`
   width: 100%;
+  height: 250px;
+  object-fit: cover;
 `
 
 export const Rating = styled.div`

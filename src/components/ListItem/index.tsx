@@ -3,13 +3,13 @@ import { Card, FoodImage, Infos, Name, Rating } from './styles'
 import Button from '../Button'
 import Tag from '../Tag'
 
-type Props = {
+export type Props = {
   name: string
   rating: string
   image: string
   description: string
-  infos: string[]
-  caminho: string
+  infos: string
+  caminho: number
 }
 
 const ListItem = ({
@@ -23,11 +23,8 @@ const ListItem = ({
   <Card>
     <FoodImage src={image} alt={name} />
     <Infos>
-      {infos.map((info) => (
-        <>
-          <Tag key={info}>{info}</Tag>
-        </>
-      ))}
+      {}
+      <Tag>{infos}</Tag>
     </Infos>
     <div>
       <Name>
@@ -39,7 +36,7 @@ const ListItem = ({
       </Name>
       <p>{description}</p>
     </div>
-    <Button to={caminho} title="Clique aqui">
+    <Button to={`/restaurants/${caminho}`} title="Clique aqui">
       Saiba Mais
     </Button>
   </Card>

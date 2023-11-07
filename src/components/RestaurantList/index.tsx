@@ -1,26 +1,27 @@
+import { Restaurants } from '../../pages/Home'
 import ListItem from '../ListItem'
 import { Content } from './styles'
 
-import Restaurante from '../../models/restaurantes'
-
 type Props = {
-  restaurantes: Restaurante[]
+  restaurantes: Restaurants[]
 }
 
-const RestaurantList = ({ restaurantes }: Props) => (
-  <Content>
-    {restaurantes.map((restaurante) => (
-      <ListItem
-        key={restaurante.id}
-        name={restaurante.name}
-        rating={restaurante.rating}
-        image={restaurante.image}
-        description={restaurante.description}
-        infos={restaurante.infos}
-        caminho={restaurante.caminho}
-      />
-    ))}
-  </Content>
-)
+const RestaurantList = ({ restaurantes }: Props) => {
+  return (
+    <Content>
+      {restaurantes.map((restaurante) => (
+        <ListItem
+          key={restaurante.id}
+          name={restaurante.titulo}
+          rating={restaurante.avaliacao}
+          image={restaurante.capa}
+          description={restaurante.descricao}
+          infos={restaurante.tipo}
+          caminho={restaurante.id}
+        />
+      ))}
+    </Content>
+  )
+}
 
 export default RestaurantList

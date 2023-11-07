@@ -1,12 +1,17 @@
 import { HeroImg } from './styles'
 
 import hero from '../../assets/images/hero-massas.png'
+import { Restaurants } from '../../pages/Home'
 
-const Hero = () => (
-  <HeroImg style={{ backgroundImage: `url(${hero})` }}>
+type Props = {
+  restaurante: Restaurants
+}
+
+const Hero = ({ restaurante }: Props) => (
+  <HeroImg style={{ backgroundImage: `url(${restaurante.capa})` }}>
     <div>
-      <p>Italiana</p>
-      <h1>La Dolce Vita Trattoria</h1>
+      <p>{restaurante.tipo}</p>
+      <h1>{restaurante.titulo}</h1>
     </div>
   </HeroImg>
 )
