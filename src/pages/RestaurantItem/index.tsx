@@ -27,7 +27,7 @@ const RestaurantItem = () => {
     <>
       <Header2 />
       <Hero restaurante={restaurante} />
-      <MenuList menu={restaurante.cardapio} />
+      <MenuList menu={restaurante.cardapio} modalItem={restaurante.cardapio} />
     </>
   )
 }

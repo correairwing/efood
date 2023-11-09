@@ -11,14 +11,14 @@ import {
   Title
 } from './styles'
 
-import { RestaurantMenu, Restaurants } from '../../pages/Home'
+import { RestaurantMenu } from '../../pages/Home'
 
 type Props = {
   menu: RestaurantMenu[]
-  // restaurante: Restaurants
+  modalItem: RestaurantMenu
 }
 
-const MenuList = ({ menu /*, restaurante*/ }: Props) => {
+const MenuList = ({ menu, modalItem }: Props) => {
   const [modalEstaAberto, setModalEstaAberto] = useState(false)
   const [modalUrl, setModalUrl] = useState('')
   return (
@@ -38,17 +38,17 @@ const MenuList = ({ menu /*, restaurante*/ }: Props) => {
             <CardButton>Adicionar ao carrinho</CardButton>
           </ListCard>
         ))}
-        {/* <Modal className={modalEstaAberto ? 'visivel' : ''}>
+        <Modal className={modalEstaAberto ? 'visivel' : ''}>
           <Card className="container">
             <img src={modalUrl} alt="" />
             <div>
-              <h3>{restaurante.nome}</h3>
+              <h3>{modalItem.nome}</h3>
               <p>
-                {restaurante.descricao} <br />
+                {modalItem.descricao} <br />
               </p>
-              <span>{restaurante.porcao}</span>
+              <span>{modalItem.porcao}</span>
               <ButtonLink to="/" title="clique para adicionar ao carrinho">
-                Adicionar ao carrinho - R$ {restaurante.preco}
+                Adicionar ao carrinho - R$ {modalItem.preco}
               </ButtonLink>
             </div>
             <CloseButton
@@ -58,7 +58,7 @@ const MenuList = ({ menu /*, restaurante*/ }: Props) => {
             />
           </Card>
           <div className="overlay"></div>
-        </Modal> */}
+        </Modal>
       </ListContainer>
     </>
   )
