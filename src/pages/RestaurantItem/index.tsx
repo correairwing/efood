@@ -15,13 +15,19 @@ const RestaurantItem = () => {
   useEffect(() => {
     fetch(`https://fake-api-tau.vercel.app/api/efood/restaurantes/${id}`)
       .then((res) => res.json())
+
       .then((res) => setRestaurante(res))
   }, [id])
+
+  if (!restaurante) {
+    return <h3>Carregando...</h3>
+  }
+
   return (
     <>
       <Header2 />
       <Hero restaurante={restaurante} />
-      <MenuList />
+      <MenuList menu={restaurante.cardapio} />
     </>
   )
 }

@@ -7,6 +7,12 @@ export const ListCard = styled.div`
   background-color: ${cores.orange};
   max-width: 320px;
   padding: 8px;
+
+  img {
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+  }
 `
 export const Title = styled.h2`
   font-size: 16px;
@@ -17,6 +23,7 @@ export const Description = styled.p`
   font-size: 14px;
   line-height: 22px;
   margin-top: 8px;
+  height: 168px;
 `
 export const CardButton = styled.button`
   background-color: ${cores.background2};

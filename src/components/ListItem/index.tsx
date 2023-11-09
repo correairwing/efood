@@ -10,6 +10,7 @@ export type Props = {
   description: string
   infos: string
   caminho: number
+  destacado: boolean
 }
 
 const ListItem = ({
@@ -18,28 +19,31 @@ const ListItem = ({
   image,
   description,
   infos,
-  caminho
-}: Props) => (
-  <Card>
-    <FoodImage src={image} alt={name} />
-    <Infos>
-      {}
-      <Tag>{infos}</Tag>
-    </Infos>
-    <div>
-      <Name>
-        <h2>{name}</h2>
-        <Rating>
-          <h2>{rating}</h2>
-          <img src={estrela} alt="estrela" />
-        </Rating>
-      </Name>
-      <p>{description}</p>
-    </div>
-    <Button to={`/restaurants/${caminho}`} title="Clique aqui">
-      Saiba Mais
-    </Button>
-  </Card>
-)
+  caminho,
+  destacado
+}: Props) => {
+  return (
+    <Card>
+      <FoodImage src={image} alt={name} />
+      <Infos>
+        {destacado ? <Tag>Destaque do dia</Tag> : ''}
+        <Tag>{infos}</Tag>
+      </Infos>
+      <div>
+        <Name>
+          <h2>{name}</h2>
+          <Rating>
+            <h2>{rating}</h2>
+            <img src={estrela} alt="estrela" />
+          </Rating>
+        </Name>
+        <p>{description}</p>
+      </div>
+      <Button to={`/restaurants/${caminho}`} title="Clique aqui">
+        Saiba Mais
+      </Button>
+    </Card>
+  )
+}
 
 export default ListItem

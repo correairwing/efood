@@ -3,23 +3,24 @@ import { useEffect, useState } from 'react'
 import Header from '../../components/Header'
 import RestaurantList from '../../components/RestaurantList'
 
+export interface RestaurantMenu {
+  id: number
+  foto: string
+  preco: number
+  nome: string
+  descricao: string
+  porcao: string
+}
+
 export type Restaurants = {
-  caminho: string
   id: number
   titulo: string
-  destacado: string
+  destacado: boolean
   capa: string
   tipo: string
   avaliacao: string
   descricao: string
-  cardapio: {
-    id: number
-    foto: string
-    preco: number
-    nome: string
-    descricao: string
-    porcao: string
-  }
+  cardapio: RestaurantMenu[]
 }
 
 const Home = () => {
