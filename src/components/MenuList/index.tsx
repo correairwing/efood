@@ -11,14 +11,19 @@ import {
   Title
 } from './styles'
 
+import close from '../../assets/images/close.png'
 import { RestaurantMenu } from '../../pages/Home'
 
 type Props = {
   menu: RestaurantMenu[]
-  modalItem: RestaurantMenu
+  modal: RestaurantMenu
+  nome: string
+  descricao: string
+  porcao: string
+  preco: number
 }
 
-const MenuList = ({ menu, modalItem }: Props) => {
+const MenuList = ({ menu, descricao, nome, porcao, preco }: Props) => {
   const [modalEstaAberto, setModalEstaAberto] = useState(false)
   const [modalUrl, setModalUrl] = useState('')
   return (
@@ -40,15 +45,15 @@ const MenuList = ({ menu, modalItem }: Props) => {
         ))}
         <Modal className={modalEstaAberto ? 'visivel' : ''}>
           <Card className="container">
-            <img src={modalUrl} alt="" />
+            <img src={modalUrl} alt={nome} />
             <div>
-              <h3>{modalItem.nome}</h3>
+              <h3>{nome}</h3>
               <p>
-                {modalItem.descricao} <br />
+                {descricao} <br />
               </p>
-              <span>{modalItem.porcao}</span>
+              <span>{porcao}</span>
               <ButtonLink to="/" title="clique para adicionar ao carrinho">
-                Adicionar ao carrinho - R$ {modalItem.preco}
+                Adicionar ao carrinho - R$ {preco}
               </ButtonLink>
             </div>
             <CloseButton
