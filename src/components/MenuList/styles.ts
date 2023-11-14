@@ -90,6 +90,7 @@ export const Card = styled.div`
     height: 280px;
     width: 280px;
     margin-right: 24px;
+    object-fit: cover;
   }
 
   p,

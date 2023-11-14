@@ -16,16 +16,15 @@ import { RestaurantMenu } from '../../pages/Home'
 
 type Props = {
   menu: RestaurantMenu[]
-  modal: RestaurantMenu
-  nome: string
-  descricao: string
-  porcao: string
-  preco: number
 }
 
-const MenuList = ({ menu, descricao, nome, porcao, preco }: Props) => {
+const MenuList = ({ menu }: Props) => {
   const [modalEstaAberto, setModalEstaAberto] = useState(false)
   const [modalUrl, setModalUrl] = useState('')
+  const [modalNome, setModalNome] = useState('')
+  const [modalDescricao, setModalDescricao] = useState('')
+  const [modalPorcao, setModalPorcao] = useState('')
+  const [modalPreco, setModalPreco] = useState('')
   return (
     <>
       <ListContainer>
@@ -35,6 +34,10 @@ const MenuList = ({ menu, descricao, nome, porcao, preco }: Props) => {
             onClick={() => {
               setModalEstaAberto(true)
               setModalUrl(media.foto)
+              setModalNome(media.nome)
+              setModalDescricao(media.descricao)
+              setModalPorcao(media.porcao)
+              setModalPreco(media.preco)
             }}
           >
             <img src={media.foto} alt="" />
@@ -45,15 +48,15 @@ const MenuList = ({ menu, descricao, nome, porcao, preco }: Props) => {
         ))}
         <Modal className={modalEstaAberto ? 'visivel' : ''}>
           <Card className="container">
-            <img src={modalUrl} alt={nome} />
+            <img src={modalUrl} alt={modalNome} />
             <div>
-              <h3>{nome}</h3>
+              <h3>{modalNome}</h3>
               <p>
-                {descricao} <br />
+                {modalDescricao} <br />
               </p>
-              <span>{porcao}</span>
+              <span>{modalPorcao}</span>
               <ButtonLink to="/" title="clique para adicionar ao carrinho">
-                Adicionar ao carrinho - R$ {preco}
+                Adicionar ao carrinho - R$ {modalPreco}
               </ButtonLink>
             </div>
             <CloseButton
@@ -62,7 +65,10 @@ const MenuList = ({ menu, descricao, nome, porcao, preco }: Props) => {
               onClick={() => setModalEstaAberto(false)}
             />
           </Card>
-          <div className="overlay"></div>
+          <div
+            className="overlay"
+            onClick={() => setModalEstaAberto(false)}
+          ></div>
         </Modal>
       </ListContainer>
     </>

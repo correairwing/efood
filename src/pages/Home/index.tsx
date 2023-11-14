@@ -6,7 +6,7 @@ import RestaurantList from '../../components/RestaurantList'
 export interface RestaurantMenu {
   id: number
   foto: string
-  preco: number
+  preco: string
   nome: string
   descricao: string
   porcao: string
