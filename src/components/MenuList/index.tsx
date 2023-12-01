@@ -14,6 +14,9 @@ import {
 import close from '../../assets/images/close.png'
 import { RestaurantMenu } from '../../pages/Home'
 
+import { add, open } from '../../store/reducers/cart'
+import { useDispatch } from 'react-redux'
+
 type Props = {
   menu: RestaurantMenu[]
 }
@@ -25,6 +28,14 @@ const MenuList = ({ menu }: Props) => {
   const [modalDescricao, setModalDescricao] = useState('')
   const [modalPorcao, setModalPorcao] = useState('')
   const [modalPreco, setModalPreco] = useState('')
+
+  const dispatch = useDispatch()
+
+  const addToCart = () => {
+    dispatch(add(menu))
+    dispatch(open())
+  }
+
   return (
     <>
       <ListContainer>
@@ -55,7 +66,11 @@ const MenuList = ({ menu }: Props) => {
                 {modalDescricao} <br />
               </p>
               <span>{modalPorcao}</span>
-              <ButtonLink to="/" title="clique para adicionar ao carrinho">
+              <ButtonLink
+                to="/"
+                title="clique para adicionar ao carrinho"
+                onClick={addToCart}
+              >
                 Adicionar ao carrinho - R$ {modalPreco}
               </ButtonLink>
             </div>
