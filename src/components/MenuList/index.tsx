@@ -59,7 +59,7 @@ const MenuList = ({ menu }: Props) => {
                   </p>
                   <span>{media.porcao}</span>
                   <ButtonLink
-                    to="/"
+                    to=""
                     title="clique para adicionar ao carrinho"
                     onClick={addToCart}
                   >
