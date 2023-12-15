@@ -1,14 +1,12 @@
-import { useEffect, useState } from 'react'
-
 import Header from '../../components/Header'
 import RestaurantList from '../../components/RestaurantList'
 
 import { useGetRestaurantsQuery } from '../../services/api'
 
-export interface RestaurantMenu {
+export interface RestaurantMenu extends Restaurants {
   id: number
   foto: string
-  preco: string
+  preco: number
   nome: string
   descricao: string
   porcao: string
