@@ -27,7 +27,7 @@ const MenuList = ({ menu }: Props) => {
   const dispatch = useDispatch()
 
   const addToCart = () => {
-    menu.forEach((item) => {
+    menu.forEach((item: RestaurantMenu) => {
       dispatch(add(item))
     })
     dispatch(open())
