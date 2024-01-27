@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import React, { useState } from 'react';
 import {
   ButtonLink,
   Card,
@@ -9,39 +9,36 @@ import {
   ListContainer,
   Modal,
   Title
-} from './styles'
+} from './styles';
 
-import close from '../../assets/images/close.png'
-import { RestaurantMenu } from '../../pages/Home'
+import close from '../../assets/images/close.png';
+import { RestaurantMenu } from '../../pages/Home';
 
-import { add, open } from '../../store/reducers/cart'
-import { useDispatch } from 'react-redux'
+import { add, open } from '../../store/reducers/cart';
+import { useDispatch } from 'react-redux';
 
 type Props = {
-  menu: RestaurantMenu[]
-}
+  menu: RestaurantMenu[];
+};
 
 const MenuList = ({ menu }: Props) => {
-  const [modalEstaAberto, setModalEstaAberto] = useState(false)
+  const [modalIndex, setModalIndex] = useState<number | null>(null); // Alteração no tipo
 
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
-  const addToCart = () => {
-    menu.forEach((item: RestaurantMenu) => {
-      dispatch(add(item))
-    })
-    dispatch(open())
-  }
+  const addToCart = (item: RestaurantMenu) => {
+    dispatch(add(item));
+    dispatch(open());
+  };
 
   return (
     <div>
       <ListContainer>
-        {menu.map((media) => (
-          <>
+        {menu.map((media, index) => (
+          <React.Fragment key={media.nome}>
             <ListCard
-              key={media.nome}
               onClick={() => {
-                setModalEstaAberto(true)
+                setModalIndex(index);
               }}
             >
               <img src={media.foto} alt="" />
@@ -49,19 +46,17 @@ const MenuList = ({ menu }: Props) => {
               <Description>{media.descricao}</Description>
               <CardButton>Mais informações</CardButton>
             </ListCard>
-            <Modal className={modalEstaAberto ? 'visivel' : ''}>
+            <Modal className={modalIndex === index ? 'visivel' : ''}>
               <Card className="container">
                 <img src={media.foto} alt={media.nome} />
                 <div>
                   <h3>{media.nome}</h3>
-                  <p>
-                    {media.descricao} <br />
-                  </p>
+                  <p>{media.descricao}</p>
                   <span>{media.porcao}</span>
                   <ButtonLink
                     to=""
-                    title="clique para adicionar ao carrinho"
-                    onClick={addToCart}
+                    title="clique para adicionar a carrinho"
+                    onClick={() => addToCart(media)}
                   >
                     Adicionar ao carrinho - R$ {media.preco + '0'}
                   </ButtonLink>
@@ -69,19 +64,19 @@ const MenuList = ({ menu }: Props) => {
                 <CloseButton
                   src={close}
                   alt="fechar"
-                  onClick={() => setModalEstaAberto(false)}
+                  onClick={() => setModalIndex(null)}
                 />
               </Card>
               <div
                 className="overlay"
-                onClick={() => setModalEstaAberto(false)}
+                onClick={() => setModalIndex(null)}
               ></div>
             </Modal>
-          </>
+          </React.Fragment>
         ))}
       </ListContainer>
     </div>
-  )
-}
+  );
+};
 
-export default MenuList
+export default MenuList;
