@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'
 import {
   ButtonLink,
   Card,
@@ -9,27 +9,27 @@ import {
   ListContainer,
   Modal,
   Title
-} from './styles';
+} from './styles'
 
-import close from '../../assets/images/close.png';
-import { RestaurantMenu } from '../../pages/Home';
+import close from '../../assets/images/close.png'
+import { RestaurantMenu } from '../../pages/Home'
 
-import { add, open } from '../../store/reducers/cart';
-import { useDispatch } from 'react-redux';
+import { add, open } from '../../store/reducers/cart'
+import { useDispatch } from 'react-redux'
 
 type Props = {
-  menu: RestaurantMenu[];
-};
+  menu: RestaurantMenu[]
+}
 
 const MenuList = ({ menu }: Props) => {
-  const [modalIndex, setModalIndex] = useState<number | null>(null); // Alteração no tipo
+  const [modalIndex, setModalIndex] = useState<number | null>(null) // Alteração no tipo
 
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
 
   const addToCart = (item: RestaurantMenu) => {
-    dispatch(add(item));
-    dispatch(open());
-  };
+    dispatch(add(item))
+    dispatch(open())
+  }
 
   return (
     <div>
@@ -38,7 +38,7 @@ const MenuList = ({ menu }: Props) => {
           <React.Fragment key={media.nome}>
             <ListCard
               onClick={() => {
-                setModalIndex(index);
+                setModalIndex(index)
               }}
             >
               <img src={media.foto} alt="" />
@@ -76,7 +76,7 @@ const MenuList = ({ menu }: Props) => {
         ))}
       </ListContainer>
     </div>
-  );
-};
+  )
+}
 
-export default MenuList;
+export default MenuList
